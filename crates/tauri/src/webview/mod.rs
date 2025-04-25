@@ -1690,6 +1690,7 @@ tauri::Builder::default()
   /// - **macOS**: available on macOS 11+ only.
   /// - **iOS**: available on iOS 14+ only.
   pub fn set_zoom(&self, scale_factor: f64) -> crate::Result<()> {
+    let _ = self.emit("zoom-change", scale_factor);
     self
       .webview
       .dispatcher
